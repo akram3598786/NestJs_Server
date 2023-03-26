@@ -4,6 +4,9 @@ import { AppController } from "./app.controller";
 import { User } from "./user/entity/user.entity";
 import { UserModule } from "./user/user.module";
 import { AuthController } from './auth/auth.controller';
+import { AuthService } from './auth/auth.service';
+import { AuthModule } from './auth/auth.module';
+import { JwtModule, JwtService } from "@nestjs/jwt";
 
 
 @Module({
@@ -20,6 +23,9 @@ import { AuthController } from './auth/auth.controller';
             entities: [User],
             synchronize: true,
           }),
-    ]
+        AuthModule,
+        JwtModule
+    ],
+    providers: [AuthService,JwtService]
 })
 export class AppModule { }

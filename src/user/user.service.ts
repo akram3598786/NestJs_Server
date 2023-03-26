@@ -21,7 +21,7 @@ export class UserService {
         return this.userRepo.findOne({ where: { id } });
     }
 
-   async getUserbyEmail(email : string){
+   async getUserbyEmail(email : string):Promise<any>{
      const user = await this.userRepo.findOne({where:{email} })
      if(!user) return {auth:false, msg:"Not Authenticated/ Dont havd an account!"};
      return {auth:true,data:user};

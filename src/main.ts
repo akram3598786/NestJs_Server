@@ -8,7 +8,5 @@ async function bootstrap() {
    { whitelist : true} //  filter out properties that should not be received by the method handler.
   ));
   await app.listen(3000);
-
-  
 }
 bootstrap();
